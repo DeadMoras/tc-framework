@@ -89,7 +89,7 @@ class Router
 
             foreach (self::$routes as $route) {
                 if (strpos($route, ':') !== false) {
-                    $route = str_replace($patternsKeys, $patternsReplace, $route);
+                    $route = str_replace($patternsKeys, $patternsKeys, $route);
                 }
                 if (preg_match('#^' . $route . '$#', $uri, $matched)) {
                     if (self::$methods[$pos] == $method || self::$methods[$post] == 'ANY') {
