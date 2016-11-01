@@ -29,14 +29,14 @@
   * $validate->getValidate($request->getAll(), [
     'nameInput' => 'required',
     'nameInput2' => 'required|min:25|max:25'
-  ]); * <addr><addr>
+  ]);<addr>
 Вывод ошибок:<addr>
   * $validate->getErrors();<addr>
 Проверка на валидность:<addr>
-   * if ( $request->correct() ) { } else {} * <addr><addr>
+   * if ( $request->correct() ) { } else {}<addr><addr>
  <addr><addr>
-Работа с моделью: <addr>
-  *Model::get('User', 'register', ['info']); // Имя модели, метод, данные<addr>
+Работа с моделью:<addr>
+  * Model::get('User', 'register', ['info']); // Имя модели, метод, данные<addr>
 <addr><addr>
 Работа с сессиями:<addr>
   * \Framework\Different\Cookie::getInstance()->set('name', 'value', 'time', 'domens', 'httponly') // name & value - Обязательны;<addr>
