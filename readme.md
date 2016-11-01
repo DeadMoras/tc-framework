@@ -48,9 +48,8 @@
 Аутентификация:
   * if (Auth::attempt(['login' => $request->input('login'), 'password' => $request->input('password')])) { <addr>
             // в 'token' ячейку в таблице 'users' заносится рандомная строка при успехе <addr>
-  }<addr>
-<addr>
-Работа с юзером:<addr>
+  }<addr><addr>
+<addr>Работа с юзером:<addr>
   * \Framework\Controllers\Auth::check() // true & false<addr>
   * \Framework\Controllers\Auth::user() // вся информация о текущем юзере<addr>
   * \Framework\Controllers\Auth::user()->login // конкретнее<addr>
