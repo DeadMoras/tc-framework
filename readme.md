@@ -13,65 +13,65 @@
 
 
 Рендер вьюхи:<addr>
-  * self::view('name');<addr>
-  * self.view('dir.dir.dir.name'); <addr>
-  * self.view('name', ['data' => $data]);<addr>
+  <code> * self::view('name'); <code> <addr>
+  <code> * self.view('dir.dir.dir.name'); <code>  <addr>
+  <code> * self.view('name', ['data' => $data]); <code> <addr>
 <addr>
 
 Работа с данными:<addr>
-  * $request = new Request();<addr>
-  * $request->get('name') // $_GET;<addr>
-  *  $request->input('name') // $_POST;<addr>
-  * $request->getAll() // все данные<addr>
-  * $request->json(['name' => $name])<addr>
-  * $request->bcrypt($string, $type) // password_hash от php<addr><addr>
+  <code> * $request = new Request(); <code> <addr>
+  <code> * $request->get('name') // $_GET; <code> <addr>
+  <code> *  $request->input('name') // $_POST; <code> <addr>
+  <code> * $request->getAll() <code>  // все данные<addr>
+  <code> * $request->json(['name' => $name]) <code> <addr>
+  <code> * $request->bcrypt($string, $type) <code>  // password_hash от php<addr><addr>
 <addr>Валидация:<addr>
-  * $validate = new Validate();<addr>
-  * $validate->getValidate($request->getAll(), [
+  <code> * $validate = new Validate(); <code>
+  <code> * $validate->getValidate($request->getAll(), [
     'nameInput' => 'required',
     'nameInput2' => 'required|min:25|max:25'
-  ]);<addr><addr>
+  ]); <code> <addr><addr>
 
 
 <addr><addr>Вывод ошибок:<addr>
-  * $validate->getErrors();<addr>
+  <code> * $validate->getErrors(); <code> <addr>
 
 <addr>Проверка на валидность:<addr>
-   * if ( $request->correct() ) { } else {}<addr><addr>
+   <code> * if ( $request->correct() ) { } else {} <code> <addr><addr>
 
 
 <addr>Работа с моделью:<addr>
-  * $data = ['test'1, 'test2'];
-  * Model::get('User', 'register', $data); // Имя модели, метод, данные<addr>
+  <code> * $data = ['test'1, 'test2']; <code>
+  <code> * Model::get('User', 'register', $data); <code> // Имя модели, метод, данные<addr>
 <addr><addr>
 
 
 Работа с сессиями:
-  * \Framework\Different\Cookie::getInstance()->set('name', 'value', 'time', 'domens', 'httponly') // name & value - Обязательны;<addr>
-  * \Framework\Different\Cookie::getInstance()->get('name') // получение<addr>
-  * \Framework\Different\Cookie::getInstance()->remove('name') // удаление<addr>
-  * \Framework\Different\Cookie::getInstance()->has('name') // проверка на существование<addr>
+  <code> * \Framework\Different\Cookie::getInstance()->set('name', 'value', 'time', 'domens', 'httponly') <code> // name & value - Обязательны;<addr>
+  <code> * \Framework\Different\Cookie::getInstance()->get('name') <code> // получение<addr>
+  <code> * \Framework\Different\Cookie::getInstance()->remove('name') <code> // удаление<addr>
+  <code> * \Framework\Different\Cookie::getInstance()->has('name') <code> // проверка на существование<addr>
 
 
 Работа с конфигами:<addr>
-  * Framework\Different\Config::get('file_name.value') // return value<addr>
+  <code> * Framework\Different\Config::get('file_name.value') // return value <code>
 
 
 Аутентификация:
-  * if (Auth::attempt(['login' => $request->input('login'), 'password' => $request->input('password')])) { <addr>
-            // в 'token' ячейку в таблице 'users' заносится рандомная строка при успехе <addr>
-  }
+  * <code> if (Auth::attempt(['login' => $request->input('login'), 'password' => $request->input('password')])) {
+            // в 'token' ячейку в таблице 'users' заносится рандомная строка при успехе
+  } <code>
 
 
 <addr>Работа с юзером:<addr>
-  * \Framework\Controllers\Auth::check() // true & false<addr>
-  * \Framework\Controllers\Auth::user() // вся информация о текущем юзере<addr>
-  * \Framework\Controllers\Auth::user()->login // конкретнее<addr>
+  <code> * \Framework\Controllers\Auth::check() <code> // true & false<addr>
+  <code> * \Framework\Controllers\Auth::user() <code> // вся информация о текущем юзере<addr>
+  <code> * \Framework\Controllers\Auth::user()->login <code> // конкретнее<addr>
 <addr><addr>
 
 
 Роутеры:
-  /user/id(:num) // 
+  * /user/id(:num) // рандомные цифры
 
 
 После скачивания нужно выполнить composer update, чтобы загрузился класс для работы с бд.
