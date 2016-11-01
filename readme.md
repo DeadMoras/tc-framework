@@ -54,7 +54,7 @@
 
 
 Работа с конфигами:<addr>
-  * Framework\Different\Config::get('file_name.value') // return [ 'key' => 'value' ]<addr>
+  * Framework\Different\Config::get('file_name.value') // return value<addr>
 
 
 Аутентификация:
