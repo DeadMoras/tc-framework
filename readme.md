@@ -22,17 +22,16 @@
   *  $request->input('name') // $_POST;<addr>
   * $request->getAll() // все данные<addr>
   * $request->json(['name' => $name])<addr>
-  * $request->bcrypt($string, $type) // password_hash от php<addr>
-<addr>
-Валидация:<addr>
+  * $request->bcrypt($string, $type) // password_hash от php<addr><addr>
+<addr>Валидация:<addr>
   * $validate = new Validate();<addr>
   * $validate->getValidate($request->getAll(), [
     'nameInput' => 'required',
     'nameInput2' => 'required|min:25|max:25'
-  ]);<addr>
-<addr>Вывод ошибок:<addr>
+  ]);<addr><addr>
+<addr><addr>Вывод ошибок:<addr>
   * $validate->getErrors();<addr>
-Проверка на валидность:<addr>
+<addr>Проверка на валидность:<addr>
    * if ( $request->correct() ) { } else {}<addr><addr>
 <addr>Работа с моделью:<addr>
   * Model::get('User', 'register', ['info']); // Имя модели, метод, данные<addr>
