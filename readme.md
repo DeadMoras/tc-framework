@@ -41,7 +41,8 @@
 
 
 <addr>Работа с моделью:<addr>
-  * Model::get('User', 'register', ['info']); // Имя модели, метод, данные<addr>
+  * $data = ['test'1, 'test2'];
+  * Model::get('User', 'register', $data); // Имя модели, метод, данные<addr>
 <addr><addr>
 
 
