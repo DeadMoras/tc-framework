@@ -33,7 +33,7 @@
 Вывод ошибок:<addr>
   * $validate->getErrors();<addr>
   * Проверка на валидность:<addr>
-   * if ( $request->correct() ) { } else {}<addr>
+   * if ( $request->correct() ) { } else {}<addr><addr>
 <addr><addr>
 Работа с моделью:<addr>
   *Model::get('User', 'register', ['info']); // Имя модели, метод, данные<addr>
