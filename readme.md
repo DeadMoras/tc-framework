@@ -34,16 +34,16 @@
   * $validate->getErrors();<addr>
   * Проверка на валидность:<addr>
    * if ( $request->correct() ) { } else {}<addr>
-<addr>
+<addr><addr>
 Работа с моделью:<addr>
   *Model::get('User', 'register', ['info']); // Имя модели, метод, данные<addr>
-<addr>
+<addr><addr>
 Работа с сессиями:<addr>
   * \Framework\Different\Cookie::getInstance()->set('name', 'value', 'time', 'domens', 'httponly') // name & value - Обязательны;<addr>
   * \Framework\Different\Cookie::getInstance()->get('name') // получение<addr>
   * \Framework\Different\Cookie::getInstance()->remove('name') // удаление<addr>
   * \Framework\Different\Cookie::getInstance()->has('name') // проверка на существование<addr>
-<addr>
+<addr><addr>
 Работа с конфигами:<addr>
   * Framework\Different\Config::get('file_name.value') // return [ 'key' => 'value' ]<addr>
 
