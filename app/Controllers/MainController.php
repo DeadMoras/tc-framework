@@ -16,7 +16,7 @@ class MainController extends Controller
 
     public function getIndex()
     {
-        // Model::get('User', 'register', ['info']);
+        // Model::get('User', 'register', 'something');
         return self::view('index');
     }
 
