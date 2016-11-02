@@ -1,6 +1,6 @@
 <?php
 
-use Framework\Controllers\Router;
+$router = new \Framework\Controllers\Router;
 
-Router::get('/', '\App\Controllers\MainController@getIndex');
-Router::post('/auth', '\App\Controllers\MainController@auth');
+
+$router->get('/', '\App\Controllers\MainController@index'); //example

@@ -4,6 +4,7 @@ session_start();
 
 require 'vendor/autoload.php';
 require 'app/route/routes.php';
+require 'app/config/template.php';
 
 $config = [
     'driver' => \Framework\Different\Config::get('db_connect.driver'),
@@ -22,4 +23,23 @@ $config = [
 
 new \Pixie\Connection('mysql', $config, 'DB');
 
-\Framework\Controllers\Router::start();
+function assets($name)
+{
+    return '/app/public/'.$name;
+}
+
+function loadJs()
+{
+    foreach ( \app\config\template::getJs() as $key ) {
+        echo '<script src="'.assets('js/'.$key).'"></script>';
+    }
+}
+
+function loadCss()
+{
+    foreach ( \app\config\template::getCss() as $key ) {
+        echo '<link rel="stylesheet" href="'.assets('css/'.$key).'">';
+    }
+}
+
+$router->run();

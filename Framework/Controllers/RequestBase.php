@@ -7,6 +7,10 @@ namespace Framework\Controllers;
  */
 abstract class RequestBase
 {
+    /**
+     * 
+     * @return array
+     */
     public static function getParse()
     {
         $input = file_get_contents('php://input');

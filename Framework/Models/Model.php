@@ -22,7 +22,7 @@ class Model implements \Framework\Interfaces\BaseModel
      * @var array
      */
     private static $info;
-
+   
     /**
      * 
      * @param string $model
@@ -32,7 +32,7 @@ class Model implements \Framework\Interfaces\BaseModel
      */
     public static function get($model, $method, $data)
     {
-        static::$model = \Framework\Different\Config::getInstace()->get('url_models.url').$model;
+        static::$model = \Framework\Different\Config::get('url_models.url').$model;
         static::$method = $method;
         static::$info = $data;
         return static::sendInfo();
@@ -40,12 +40,11 @@ class Model implements \Framework\Interfaces\BaseModel
 
     /**
      * 
-     * @return mixed
+     * @return void
      */
     public static function sendInfo()
     {
         $controller = new static::$model();
         return $controller->{static::$method}(static::$info);
-    }
-
+    }    
 }

@@ -1,5 +1,6 @@
 {
     "name": "TC/TheCrutch",
+    "type": "project",
     "description": "framework.",
     "keywords": ["framework", "TC"],
     "type": "project",

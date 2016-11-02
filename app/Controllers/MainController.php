@@ -13,19 +13,15 @@ use \Framework\Models\Model;
 
 class MainController extends Controller
 {
-
-    public function getIndex()
+    public function index()
     {
-        // Model::get('User', 'register', 'something');
-        return self::view('index');
+        $data = [
+            'name',
+            'name2'
+        ];
+        $model = Model::get('example', 'register', $data);
+        return $this->view('index', [
+            'name' => $model
+        ]);
     }
-
-    public function auth()
-    {
-        $request = new Request();
-        if (Auth::attempt(['login' => $request->input('login'), 'password' => $request->input('password')])) {
-            // echo 'true';
-        }
-    }
-
 }

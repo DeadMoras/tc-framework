@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- example for load css files <?loadCss()?>-->
 </head>
-<body>
-	
-	<?php if ( !\Framework\Controllers\Auth::check() ): ?>
-	<form action="/auth" method="post">
-		<input type="text" name="login"><br><br>
-		<input type="password" name="password"><br><br>
-		<button>Ок</button>
-	</form>
-	<?php endif;?>
-
+<body>	
+    
+    <?php
+        print_r($name);
+    ?>
+    
+    <!-- example for load js files <?loadJs()?>-->
 </body>
 </html>

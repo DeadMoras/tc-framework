@@ -8,7 +8,7 @@ use \Framework\Controllers\RequestBase;
   Main request class for all project
  */
 class Request
-{
+{   
     /**
      * 
      * @param string $container
@@ -49,7 +49,7 @@ class Request
 
     /**
      * 
-     * @param type $object
+     * @param mixed $object
      * @return json
      */
     public function json(...$object)
@@ -63,7 +63,7 @@ class Request
      * @param boolean $type
      * @return string
      */
-    public function bcrypt(string, $string, $type = false)
+    public function bcrypt(string $string, $type = false)
     {
         return $type == false ? password_hash($string, PASSWORD_DEFAULT) : password_hash($string, $type);
     }

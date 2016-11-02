@@ -14,7 +14,7 @@ trait TViews
      * @param boolen $object
      * @return boolean
      */
-    public static function view($template, $object = false)
+    public function view($template, $object = false)
     {
         if ($object != false) {
             extract($object);
