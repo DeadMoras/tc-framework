@@ -15,8 +15,9 @@
   * переадресация;
   * отправление content-type.
 
-  
+
 [Работа с базой данных](https://github.com/usmanhalalit/pixie)
+Класс \DB
 
 
 Работа с вьюхой:
