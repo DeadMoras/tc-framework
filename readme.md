@@ -208,5 +208,8 @@ Response
 `$response::headerContent('content')`
 
 
+[Работа с базой данных](https://github.com/usmanhalalit/pixie)
+
+
 
 После скачивания нужно выполнить composer update, чтобы загрузился класс для работы с бд.
