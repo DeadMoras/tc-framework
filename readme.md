@@ -3,7 +3,7 @@
 ###Первая версия фреймворка tc
 
 Доступно:
-  * рендер вьюхи;
+  * рендер представления;
   * работа с данными ($_post, $_get);
   * переобразование данных в json;
   * валидация (required, min, max);
@@ -20,12 +20,12 @@
 Класс \DB
 
 
-Работа с вьюхой:
+Работа с представлением:
    * Подгружаются только php файлы.
    * Вложеность максимальная, перечисление через . (точку)
    * В файле app/config/template.php можно перечислять js & css файлы
-   * Для вывода во вьюхе две функции: <?loadCss()?> <?loadJs?>
-   * Можно указывать явно во вьюхе: <?assets('images/name.png')?>
+   * Для вывода в представление есть две функции: <?loadCss()?> <?loadJs?>
+   * Можно указывать явно в представление: <?assets('images/name.png')?>
    * Передача данных:
 `$this->view('name', ['data' => $data])` // 'data' - Данные, например - данные из базы данных.
     * `$this->view('name')`
@@ -99,13 +99,19 @@
 
 Работа с куки:
 
-* "Положить":
+* Записать:
 
 `\Framework\Different\Cookie::getInstance()->set('name', 'value', 'time', 'domens', 'httponly')` // name & value - Обязательны
 
-`\Framework\Different\Cookie::getInstance()->get('name')` // получение
+* Получить:
+
+`\Framework\Different\Cookie::getInstance()->get('name')`
+
+* Удалить:
 
 `\Framework\Different\Cookie::getInstance()->remove('name')`
+
+* Проверка на существование
 
 `\Framework\Different\Cookie::getInstance()->has('name')`
 
