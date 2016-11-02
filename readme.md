@@ -15,6 +15,8 @@
   * переадресация;
   * отправление content-type.
 
+  
+[Работа с базой данных](https://github.com/usmanhalalit/pixie)
 
 
 Работа с вьюхой:
@@ -206,9 +208,6 @@ Response
 * Отправление content-type
 
 `$response::headerContent('content')`
-
-
-[Работа с базой данных](https://github.com/usmanhalalit/pixie)
 
 
 
