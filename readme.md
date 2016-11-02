@@ -20,10 +20,14 @@
 Работа с вьюхой:
    * Подгружаются только php файлы.
    * Вложеность максимальная, перечисление через . (точку)
+   * В файле app/config/template.php можно перечислять js & css файлы
+   * Для вывода во вьюхе две функции: <?loadCss()?> <?loadJs?>
+   * Можно указывать явно во вьюхе: <?assets('images/name.png')?>
    * Передача данных:
 `$this->view('name', ['data' => $data])` // 'data' - Данные, например - данные из базы данных.
     * `$this->view('name')`
     * `$this->view('dir.dir.dir.name')`
+
 
 
 Работа с данными:
@@ -52,6 +56,7 @@
 `$request->bcrypt($string, $type)` //$type не обязателен
 
 
+
 Валидация:
 
 * Объявление:
@@ -75,6 +80,7 @@
 `{} else {}`
 
 
+
 Работа с моделью:
 
 * Данные:
@@ -84,6 +90,7 @@
 * Передача данных:
 
 `Model::get('User', 'register', $data)` // Имя класса, метод, данные
+
 
 
 
@@ -101,11 +108,13 @@
 
 
 
+
 Работа с конфигом:
 
 * Получить значение
 
 `Framework\Different\Config::get('file_name.value')` // возвращает значение
+
 
 
 
@@ -116,6 +125,7 @@
 `if (Auth::attempt(['login' => $request->input('login'), 'password' => $request->input('password')])) {`
 `echo true`
 `}` // при успехе в ячейку 'token' в таблице 'users' заносится рандомная строка
+
 
 
 
@@ -132,6 +142,7 @@
 * Значение
 
 `\Framework\Controllers\Auth::user()->login`
+
 
 
 
@@ -181,6 +192,7 @@
 
 
 
+
 Response
 
 * Объявление
@@ -194,6 +206,7 @@ Response
 * Отправление content-type
 
 `$response::headerContent('content')`
+
 
 
 После скачивания нужно выполнить composer update, чтобы загрузился класс для работы с бд.
