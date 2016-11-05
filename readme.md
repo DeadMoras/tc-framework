@@ -32,12 +32,11 @@
 * Все файлы должны быть формата .tpl и содержаться в папке view
 * При вложености перечисление через . (точку) 
 * Рендер представления:
-    ```$data = ['login' => 'DeadMoras'];
-    $this->view('name', [
-        'data' => $data
-    ]);
-    ```
+```
+$data = ['login' => 'DeadMoras'];
+  $this->view('name', [
+     'data' => $data
+]);
+```
 * Можно указать просто
-    <code>
-      $this->view('name');
-    </code>
+`$this->view('name');`
