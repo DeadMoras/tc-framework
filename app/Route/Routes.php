@@ -1,6 +1,5 @@
 <?php
 
-$router = new \Framework\Controllers\Router;
+$router = new \framework\routes\Router;
 
-
-$router->get('/', '\App\Controllers\MainController@index'); //example
+$router->get('/', '\app\controller\Test@get');

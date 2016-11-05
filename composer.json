@@ -3,14 +3,14 @@
     "type": "project",
     "description": "framework.",
     "keywords": ["framework", "TC"],
-    "type": "project",
     "require": {
-        "usmanhalalit/pixie": "2.*@dev"
+        "usmanhalalit/pixie": "2.*@dev",
+        "smarty/smarty": "~3.1"
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Framework\\": "framework/"
+            "app\\": "app/",
+            "framework\\": "framework/"
         }
     }
 }
