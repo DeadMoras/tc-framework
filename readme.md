@@ -33,10 +33,10 @@
 * При вложености перечисление через . (точку) 
 * Рендер представления:
     <code>
-      $data = ['login' => 'DeadMoras'];
-      $this->view('name', [
+    $data = ['login' => 'DeadMoras'];
+    $this->view('name', [
         'data' => $data
-      ]);
+    ]);
     </code>
 * Можно указать просто
     <code>
