@@ -85,4 +85,60 @@ $validate->valid($request->all(), [
 * Проверка:
 ```
 if ( $validate->correct() ) {
-    } 
+    //true
+} else {
+    //false
+}
+```
+
+Работа с моделью:
+* Объявление:
+`$model = new Model;`
+
+* Передача данных из контроллера в модель:
+```
+$data = ['something', 'here];
+$model->init('User', 'register', $data);
+```
+Где 'User' - название класса, 'register' - название метода, 'data' - данные.
+
+
+* Упрощенный синтаксис:
+```
+$model->ainit(['User' => 'register', $data]);
+```
+
+Модель может вернуть обработанные данные, которые можно передачать в шаблон.
+
+
+Работа с куки:
+ Все куки шифруются через Mcrypt и аналогично расшифровываются.
+
+* Объявление:
+
+`$cookie = new Cookie;`
+
+* Запись:
+`$cookie->set('name', 'value', 'time', 'domens', 'httponly');`
+
+Значение может быть массивом.
+'time', 'domens', 'httponly' - не обязательны к заполнению
+
+* Получение:
+
+`$cookie->get('name')`
+
+* Удаление:
+
+`$cookie->remove('name');`
+
+* Проверка на существование:
+
+`$cookie->has('name');`
+
+
+Работа с конфигом:
+
+* Получение значения
+
+`$config->get('file_name.key');`
