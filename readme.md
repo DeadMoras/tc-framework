@@ -64,4 +64,25 @@ $data = ['login' => 'DeadMoras'];
 
 * Переобразование в json:
 
-    `$request->json(['name' => 'name']);`
+    `$request->json(['name' => 'name']);
+
+
+Валидация:
+* Объявление:
+    `$validate = new Validate;`
+
+* Пример валидации:
+```
+$validate->valid($request->all(), [
+    'inputName' => 'required|min:3|max:10',
+    'inputName2' => 'min:3'
+]);
+```
+
+* Вывод ошибок при валидации:
+`$validate->getErrors();`
+
+* Проверка:
+```
+if ( $validate->correct() ) {
+    } 
