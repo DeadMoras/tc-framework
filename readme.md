@@ -36,7 +36,7 @@
 $data = ['login' => 'DeadMoras'];
   $this->view('name', [
       'data' => $data
- ]);
+]);
 </code>
 * Можно указать просто
     <code>
