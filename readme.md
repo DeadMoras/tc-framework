@@ -64,7 +64,7 @@ $data = ['login' => 'DeadMoras'];
 
 * Переобразование в json:
 
-    `$request->json(['name' => 'name']);
+    `$request->json(['name' => 'name']);`
 
 
 Валидация:
