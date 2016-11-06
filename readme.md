@@ -196,4 +196,70 @@ Response класс
 
 * Объявление content-type
 
-`$response->setContent('string');`
+`$response->setContent('string');
+
+* Перенаправление
+
+`$response->redirect('/');`
+
+* Послать Json (content-type: application/json задается автоматически)
+
+`$response->json('string');`
+
+
+Роутеры:
+
+Все роутеры задаются в app/route
+
+* Доступны все методы:
+
+```
+$router->get('pattern', function() { /* ... */ })
+
+$router->post('pattern', function() { /* ... */ })
+
+$router->put('pattern', function() { /* ... */ })
+
+$router->delete('pattern', function() { /* ... */ })
+
+$router->options('pattern', function() { /* ... */ })
+
+$router->patch('pattern', function() { /* ... */ })
+```
+
+* Регулярные выражения
+
+```
+$router->get('/hello/(\w+)', function($name) { 
+    echo 'Hello ' . htmlentities($name); 
+});
+```
+
+* Мульти-роутеры:
+
+```
+$router->get('/movies/(\d+)/photos/(\d+)', function($movieId, $photoId) { 
+    echo 'Movie #' . $movieId . ', photo #' . $photoId); 
+});
+```
+
+* Middlewares
+
+```
+$router->before('GET|POST', '/admin/.*', function() {
+     if (!isset($_SESSION['user'])) {
+         header('location: /auth/login'); exit(); 
+     } 
+});
+```
+
+* Custom 404
+
+```
+$router->default404(function() { 
+    header('HTTP/1.1 404 Not Found'); // ... do something special here 
+});
+```
+
+
+По всем вопросам писать сюда - [тык](http://vk.com/deadmoras)
