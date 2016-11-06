@@ -69,6 +69,7 @@ $data = ['login' => 'DeadMoras'];
 
 Валидация:
 * Объявление:
+
     `$validate = new Validate;`
 
 * Пример валидации:
