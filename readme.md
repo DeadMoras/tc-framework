@@ -89,6 +89,7 @@ $validate->valid($request->all(), [
 ```
 
 * Вывод ошибок при валидации:
+
 `$validate->getErrors();`
 
 * Проверка:
@@ -101,16 +102,19 @@ if ( $validate->correct() ) {
 ```
 
 Работа с моделью:
+
 * Объявление:
+
 `$model = new Model;`
 
 * Передача данных из контроллера в модель:
+
 ```
 $data = ['something', 'here];
 $model->init('User', 'register', $data);
 ```
-Где 'User' - название класса, 'register' - название метода, 'data' - данные.
 
+Где 'User' - название класса, 'register' - название метода, 'data' - данные.
 
 * Упрощенный синтаксис:
 ```
@@ -128,6 +132,7 @@ $model->ainit(['User' => 'register', $data]);
 `$cookie = new Cookie;`
 
 * Запись:
+
 `$cookie->set('name', 'value', 'time', 'domens', 'httponly');`
 
 Значение может быть массивом.
