@@ -142,3 +142,58 @@ $model->ainit(['User' => 'register', $data]);
 * Получение значения
 
 `$config->get('file_name.key');`
+
+
+Аутентификация:
+
+* Объявление:
+
+`$auth = new Auth;`
+
+Авторизация:
+
+```
+if ( $auth->attempt('login' => $request->input('login), 'password' => $request->input('password)) ) {
+    //true
+} else {
+    //false
+}
+```
+
+Первый параметр должен быть логином/имеилом/именем и т.п
+
+* Авторизован или нет:
+
+```
+if ( $auth->check() ) {
+    //true
+} else {
+    //false
+}
+```
+
+* Получение данных:
+
+`$attempt->user()['login']);`
+
+
+Response класс
+
+* Объявление:
+
+`$response = new Response;`
+
+Получение/Запись кода:
+
+`$response->code();`
+
+Для записи нужно указать цифру кода
+
+
+* Заголовки:
+
+`$response->header($what, $string);`
+
+* Объявление content-type
+
+`$response->setContent('string');`
