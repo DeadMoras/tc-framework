@@ -39,4 +39,5 @@ $data = ['login' => 'DeadMoras'];
 ]);
 ```
 * Можно указать просто
+
 `$this->view('name');`
