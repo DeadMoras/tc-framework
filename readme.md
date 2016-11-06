@@ -34,7 +34,7 @@
 * Рендер представления:
 <code>
 $data = ['login' => 'DeadMoras'];
-    $this->view('name', [
+  $this->view('name', [
         'data' => $data
     ]);
 </code>
