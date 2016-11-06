@@ -45,10 +45,15 @@ $data = ['login' => 'DeadMoras'];
 
 Работа с данными:
 * Объявление:
+
    `$request = new Request;`
+
 * Получить данные с конкретного инпута:
+
     `$request->input('name');`
+
 * Получить все данные:
+
     `$request->all();`
 
 Учтите, что данные возвращаются в своем порядке. 
@@ -56,6 +61,7 @@ $data = ['login' => 'DeadMoras'];
 И их выводить нужно командой print_r(или другой по смыслу).
 
 Будут выводится как названия (name) инпутов, так и данные.
+
 * Получение конкретных данных:
 
     `$request->input(['name', 'name1']);`
@@ -68,11 +74,13 @@ $data = ['login' => 'DeadMoras'];
 
 
 Валидация:
+
 * Объявление:
 
     `$validate = new Validate;`
 
 * Пример валидации:
+
 ```
 $validate->valid($request->all(), [
     'inputName' => 'required|min:3|max:10',
