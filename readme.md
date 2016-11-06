@@ -45,4 +45,6 @@ $data = ['login' => 'DeadMoras'];
 
 Работа с данными:
 * Объявление:
-   `$request = new Request;
+   `$request = new Request;`
+* Получить данные с конкретного инпута:
+    `$request->input('name');`
