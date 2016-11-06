@@ -41,3 +41,8 @@ $data = ['login' => 'DeadMoras'];
 * Можно указать просто
 
 `$this->view('name');`
+
+
+Работа с данными:
+* Объявление:
+   `$request = new Request;
