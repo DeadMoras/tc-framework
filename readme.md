@@ -78,10 +78,21 @@ $data = ['login' => 'DeadMoras'];
 Csrf-защита:
 
 При авторизации с помощью метода ($auth->attempt) в куки записывается рандомный токен (csrf), по принципу:
+
 `$token . ':' . md5($token . ':' . 'lw/e1203q.weks');`
+
 $token это сгенерированная строка которая хранится в ячейке 'token' (база данных). 
+
 Вытягивается он не из бд, а при добавление id и token'a в куки(все тот же метод attempt).
+
 И записывается в куки соответственно.
+
+
+* Для работы нужно добавить скрытое поле в разметку вашей формы так:
+
+`<input type="hidden" name="csrf" value="{csrf_token()}">`
+
+
 
 * Объявление:
 
@@ -98,7 +109,23 @@ if ( $csrf->check($csrfToken) ) {
 ```
 
 Свойство $csrfToken это
-`$csrfToken = $cookie->get('csrf');`
+`$csrfToken = $request->input('csrf');
+
+
+* Пример
+
+```
+$request = new \framework\request\Request;
+$csrf = new \framework\other\Csrf;
+ 
+$csrfToken = $request->input('csrf');
+
+if ( $csrf->check($csrfToken) ) {
+    echo 'true';
+} else {
+    echo 'false';
+}
+``
 
 
 Валидация:
