@@ -125,7 +125,7 @@ if ( $csrf->check($csrfToken) ) {
 } else {
     echo 'false';
 }
-``
+```
 
 
 Валидация:
