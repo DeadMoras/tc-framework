@@ -2,10 +2,10 @@
 
 namespace framework\auth;
 
-use framework\auth\AuthB;
-use framework\facade\Facade;
+use \framework\auth\AuthB;
+use \framework\factory\Factory;
 
-class Auth extends Facade
+class Auth extends Factory
 {
     /**
      *

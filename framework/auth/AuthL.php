@@ -54,7 +54,7 @@ class AuthL
                 ->select('id', 'token')
                 ->where('login', '=', $data[0])
                 ->first();
-        return $this->setInfo($userInfo);
+        return $this->setInfo($userInfo, $token);
     }
     
     /**
@@ -62,8 +62,11 @@ class AuthL
      * @param array $user
      * @return boolean
      */
-    private function setInfo($user)
+    private function setInfo($user, $token)
     {
+        $csrf = new \framework\other\Csrf;
+        $newToken = $csrf->generate($token);
+        $this->cookie()->set('csrf', $newToken);
         foreach ($user as $k => $v) {
             $this->user[$k] = $v;
             $this->cookie()->set($k, $v);
