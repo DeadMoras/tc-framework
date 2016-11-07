@@ -109,7 +109,7 @@ if ( $csrf->check($csrfToken) ) {
 ```
 
 Свойство $csrfToken это
-`$csrfToken = $request->input('csrf');
+`$csrfToken = $request->input('csrf');`
 
 
 * Пример
