@@ -3,9 +3,9 @@
 namespace framework\auth;
 
 use \framework\auth\AuthB;
-use \framework\factory\Factory;
+use \framework\facade\Facade;
 
-class Auth extends Factory
+class Auth extends Facade
 {
     /**
      *
