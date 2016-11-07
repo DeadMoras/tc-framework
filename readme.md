@@ -73,6 +73,32 @@ $data = ['login' => 'DeadMoras'];
     `$request->json(['name' => 'name']);`
 
 
+Csrf-защита:
+
+При авторизации с помощью метода ($auth->attempt) в куки записывается рандомный токен (csrf), по принципу:
+`$token . ':' . md5($token . ':' . 'lw/e1203q.weks');`
+$token это сгенерированная строка которая хранится в ячейке 'token' (база данных). 
+Вытягивается он не из бд, а при добавление id и token'a в куки(все тот же метод attempt).
+И записывается в куки соответственно.
+
+* Объявление:
+
+`$csrf = new \framework\other\Csrf;`
+
+* Проверка:
+
+```
+if ( $csrf->check($csrfToken) ) {
+    echo 'true';
+} else {
+    echo 'false';
+}
+```
+
+Свойство $csrfToken это
+`$csrfToken = $cookie->get('csrf');`
+
+
 Валидация:
 
 * Объявление:
@@ -277,3 +303,6 @@ $router->default404(function() {
 
 
 По всем вопросам писать сюда - [тык](http://vk.com/deadmoras)
+
+**upd1**
+Была добавления csrf защита.
