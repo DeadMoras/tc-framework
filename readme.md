@@ -155,7 +155,7 @@ $model->ainit(['User' => 'register', $data]);
 
 * Получение значения
 
-`$config->get('file_name.key');`
+`\Framework\Other\Config::get('file_name.key');`
 
 
 Аутентификация:
