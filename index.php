@@ -9,3 +9,8 @@ function csrf_token()
 	$cookie = \framework\other\Cookie::instance();
 	return $cookie->get('csrf');
 }
+
+function assets($name)
+{
+	return 'public/'.$name;
+}
