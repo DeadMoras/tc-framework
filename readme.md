@@ -9,6 +9,8 @@
 
 **upd1**
 Была добавлена csrf защита.
+Добавлена папка public.
+Добавлен метод assets
 
 
 Доступно:
@@ -329,6 +331,18 @@ $router->before('GET|POST', '/admin/.*', function() {
 $router->default404(function() { 
     header('HTTP/1.1 404 Not Found'); // ... do something special here 
 });
+```
+
+
+Метод assets выполняет простую вещь:
+
+подключает клиентские файлы.
+
+Использовать его можно без инициализации, пример:
+(предполагается, что вы используете smarty (он по умолчанию))
+
+```
+<link rel="stylesheet" type="text/css" href="{assets('css/style.css')}">
 ```
 
 
