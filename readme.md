@@ -96,7 +96,7 @@ $token это сгенерированная строка которая хра�
 
 * Объявление:
 
-`$csrf = new \framework\other\Csrf;`
+`$csrf = \framework\other\Csrf::instance();`
 
 * Проверка:
 
@@ -184,7 +184,7 @@ $model->ainit(['User' => 'register', $data]);
 
 * Объявление:
 
-`$cookie = new Cookie;`
+`$cookie = \framework\other\Cookie::instance();`
 
 * Запись:
 
