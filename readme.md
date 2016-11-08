@@ -36,7 +36,8 @@
 * Рендер представления:
 ```
 $data = ['login' => 'DeadMoras'];
-  $this->view('name', [
+
+$this->view('name', [
      'data' => $data
 ]);
 ```
@@ -116,7 +117,7 @@ if ( $csrf->check($csrfToken) ) {
 
 ```
 $request = new \framework\request\Request;
-$csrf = new \framework\other\Csrf;
+$csrf = \framework\other\Csrf::instance();
  
 $csrfToken = $request->input('csrf');
 
