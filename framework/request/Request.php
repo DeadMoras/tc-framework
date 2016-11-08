@@ -3,9 +3,9 @@
 namespace framework\request;
 
 use framework\request\RequestB;
-use framework\facade\Facade;
+use framework\factory\Factory;
 
-class Request extends Facade
+class Request extends Factory
 {
     /**
      *

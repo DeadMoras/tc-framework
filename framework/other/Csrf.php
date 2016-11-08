@@ -10,8 +10,19 @@ class Csrf
      *
      * @var object
      */
-    private $cookie;
+    private static $csrf_object;
     
+
+    private function __construct() {}
+
+    public static function instance()
+    {
+        if ( self::$csrf_object == null && self::$csrf_object == false ) {
+            self::$csrf_object = new Csrf;
+        }
+        return self::$csrf_object;
+    }
+
     /**
      * 
      * @param string $token
@@ -55,8 +66,9 @@ class Csrf
      */
     private function checkTokenPrivate(string $token)
     {
-        if ($this->cookie()->has('csrf') && $this->cookie()->has('token')) {
-            $tokenCookie = $this->cookie()->get('csrf') . ':' . md5($this->cookie()->get('csrf') . ':' . 'lw/e1203q.weks');
+        $cookie = \framework\other\Cookie::instance();
+        if ($cookie->has('csrf') && $cookie->has('token')) {
+            $tokenCookie = $cookie->get('csrf') . ':' . md5($cookie->get('csrf') . ':' . 'lw/e1203q.weks');
             $tokenCheck = $token . ':' . md5($token . ':' . 'lw/e1203q.weks');
             if ($tokenCheck === $tokenCookie) {
                 return true;
@@ -66,13 +78,5 @@ class Csrf
         } else {
             return false;
         }
-    }
-
-    private function cookie()
-    {
-        if ($this->cookie == null) {
-            $this->cookie = new Cookie;
-        }
-        return $this->cookie;
     }
 }

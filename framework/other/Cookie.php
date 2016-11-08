@@ -11,6 +11,18 @@ class Cookie
      * @var object
      */
     private $mobject;
+
+    private static $cookie_object;
+
+    private function __construct() {}
+
+    public static function instance()
+    {
+        if ( self::$cookie_object == null && self::$cookie_object == false ) {
+            self::$cookie_object = new Cookie;
+        }
+        return self::$cookie_object;
+    }
     
     /**
      * 

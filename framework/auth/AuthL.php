@@ -64,12 +64,12 @@ class AuthL
      */
     private function setInfo($user, $token)
     {
-        $csrf = new \framework\other\Csrf;
+        $csrf = \framework\other\Csrf::instance();
         $newToken = $csrf->generate($token);
-        $this->cookie()->set('csrf', $newToken);
+        AuthB::cookie()->set('csrf', $newToken);
         foreach ($user as $k => $v) {
             $this->user[$k] = $v;
-            $this->cookie()->set($k, $v);
+            AuthB::cookie()->set($k, $v);
         }
         return true;
     }
@@ -82,8 +82,8 @@ class AuthL
     {
         $result = \DB::table('users')
                 ->select('id')
-                ->where('id', '=', $this->cookie()->get('id'))
-                ->where('token', '=', $this->cookie()->get('token'))
+                ->where('id', '=', AuthB::cookie()->get('id'))
+                ->where('token', '=', AuthB::cookie()->get('token'))
                 ->first();
         if ($result == null && $result == false) {
             return false;

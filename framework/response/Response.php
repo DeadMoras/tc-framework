@@ -2,9 +2,9 @@
 
 namespace framework\response;
 
-use framework\facade\Facade;
+use framework\factory\Factory;
 
-class Response extends Facade
+class Response extends Factory
 {
     /**
      *
@@ -35,15 +35,6 @@ class Response extends Facade
     public function header($key, $values)
     {
         $this->object->header($key, $values);
-    }
-    
-    /**
-     * 
-     * @return mixed
-     */
-    public function getContent()
-    {
-        return $this->object->getContent();
     }
     
     /**

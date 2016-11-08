@@ -1,8 +1,8 @@
 <?php
 
-namespace framework\facade;
+namespace framework\factory;
 
-abstract class Facade
+abstract class Factory
 {
     /**
      * 

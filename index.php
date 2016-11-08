@@ -6,6 +6,6 @@ require ROOT . '/framework/app.php';
 
 function csrf_token()
 {
-	$cookie = new \framework\other\Cookie;
+	$cookie = \framework\other\Cookie::instance();
 	return $cookie->get('csrf');
 }

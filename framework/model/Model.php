@@ -2,9 +2,9 @@
 
 namespace framework\model;
 
-use framework\facade\Facade;
+use framework\factory\Factory;
 
-class Model extends Facade
+class Model extends Factory
 {
     /**
      *

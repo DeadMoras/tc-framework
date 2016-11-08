@@ -2,10 +2,10 @@
 
 namespace framework\routes;
 
-use framework\facade\Facade;
+use framework\factory\Factory;
 use framework\routes\RouterB;
 
-class Router extends Facade
+class Router extends Factory
 {
     private $object;
 

@@ -30,6 +30,12 @@ class AuthB extends AuthL implements AuthInt
      * @var array
      */
     private $userAll = [];
+
+    /**
+     *
+     * @var object
+     */
+    private static $cookie;
     
     /**
      * 
@@ -56,7 +62,7 @@ class AuthB extends AuthL implements AuthInt
      */
     public function check()
     {
-        if (!$this->cookie()->has('id') && !$this->cookie()->has('token')) {
+        if (!self::cookie()->has('id') && !self::cookie()->has('token')) {
             return false;
         }
         return $this->checkLogic();
@@ -82,7 +88,7 @@ class AuthB extends AuthL implements AuthInt
     private function userAllInfo()
     {
         $all = \DB::table('users')
-                ->where('id', '=', $this->cookie()->get('id'))
+                ->where('id', '=', self::cookie()->get('id'))
                 ->first();
         if ($all == null && $all == false) {
             return false;
@@ -112,11 +118,12 @@ class AuthB extends AuthL implements AuthInt
      * 
      * @return mixed
      */
-    protected function cookie()
+    protected static function cookie()
     {
-        if ($this->cookie == null) {
-            $this->cookie = new Cookie;
+        $cookie = \framework\other\Cookie::instance();
+        if ( self::$cookie == null ) {
+            self::$cookie = $cookie;
         }
-        return $this->cookie;
+        return self::$cookie;
     }
 }

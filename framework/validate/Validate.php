@@ -2,9 +2,9 @@
 
 namespace framework\validate;
 
-use framework\facade\Facade;
+use framework\factory\Factory;
 
-class Validate extends Facade
+class Validate extends Factory
 {
     /**
      *
