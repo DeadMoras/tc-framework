@@ -20,7 +20,7 @@ class Cookie
 
     public static function instance()
     {
-        if( self::$cookie_object == null && self::$cookie_object == false ) {
+        if ( self::$cookie_object == null && self::$cookie_object == false ) {
             self::$cookie_object = new Cookie;
         }
 
@@ -77,7 +77,7 @@ class Cookie
      */
     private function mcrypt()
     {
-        if( $this->mobject == null ) {
+        if ( $this->mobject == null ) {
             $this->mobject = new Mcrypt;
         }
 

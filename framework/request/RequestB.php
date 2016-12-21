@@ -13,14 +13,15 @@ class RequestB extends RequestL
     protected $data;
 
     /**
-     * 
+     *
      * @param array $name
      * @return string
      */
     public function input($name)
     {
-        if (is_array($name)) {
+        if ( is_array($name) ) {
             $this->array_input($name);
+
             return $this->foreachData();
         } else {
             return parent::postInput($name);
@@ -28,19 +29,19 @@ class RequestB extends RequestL
     }
 
     /**
-     * 
+     *
      * @param array $object
      */
     public function array_input(array $object)
     {
-        foreach ($object as $v) {
+        foreach ( $object as $v ) {
             $result = parent::postInput($v);
             $this->data[] = $result;
         }
     }
 
     /**
-     * 
+     *
      * @param json $object
      * @return mixed
      */
@@ -50,7 +51,7 @@ class RequestB extends RequestL
     }
 
     /**
-     * 
+     *
      * @return array
      */
     public function all()
@@ -59,11 +60,11 @@ class RequestB extends RequestL
     }
 
     /**
-     * 
+     *
      */
     public function foreachData()
     {
-        foreach ($this->data as $k) {
+        foreach ( $this->data as $k ) {
             echo $k;
         }
     }

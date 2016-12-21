@@ -22,7 +22,7 @@ class RequestL
      */
     public static function getPost($input)
     {
-        return $_POST[$input];
+        return self::patternText($_POST[$input]);
     }
 
     /**

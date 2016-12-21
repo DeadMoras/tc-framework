@@ -49,7 +49,7 @@ class AuthB extends AuthL implements AuthInt
         $this->attemptKeys = array_keys($data);
         $this->attemptValues = array_values($data);
         $info = $this->userInfo($this->attemptKeys, $this->attemptValues);
-        if( $info !== null && $info !== false ) {
+        if ( $info !== null && $info !== false ) {
             return true;
         } else {
             echo Config::get('validate_rules.notincorrect');
@@ -64,7 +64,7 @@ class AuthB extends AuthL implements AuthInt
      */
     public function check()
     {
-        if( !self::cookie()->has('id') && !self::cookie()->has('token') ) {
+        if ( !self::cookie()->has('id') && !self::cookie()->has('token') ) {
             return false;
         }
 
@@ -77,7 +77,7 @@ class AuthB extends AuthL implements AuthInt
      */
     public function user()
     {
-        if( $this->check() ) {
+        if ( $this->check() ) {
             return $this->userAllInfo();
         } else {
             return false;
@@ -90,7 +90,7 @@ class AuthB extends AuthL implements AuthInt
     private function userAllInfo()
     {
         $all = \DB::table('users')->where('id', '=', self::cookie()->get('id'))->first();
-        if( $all == null && $all == false ) {
+        if ( $all == null && $all == false ) {
             return false;
         } else {
             return $this->allUserGetInfo($all);
@@ -104,8 +104,8 @@ class AuthB extends AuthL implements AuthInt
      */
     private function allUserGetInfo($info)
     {
-        foreach( $info as $key => $value ) {
-            if( $info->$key == $this->userAll[$key] ) {
+        foreach ( $info as $key => $value ) {
+            if ( $info->$key == $this->userAll[$key] ) {
                 return $this->userAll;
             } else {
                 $this->userAll[$key] = $value;
