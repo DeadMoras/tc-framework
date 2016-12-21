@@ -7,6 +7,8 @@ class Mcrypt
     /**
      *
      * @var string
+     *
+     * just change that key
      */
     private $key = 'ke01MKwe182.3LKwq1ke/.s1';
     
