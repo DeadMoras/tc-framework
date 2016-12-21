@@ -6,8 +6,7 @@ use framework\other\Config;
 use framework\other\Cookie;
 use framework\other\Csrf;
 
-class AuthL
-{
+class AuthL {
     /**
      *
      * @param array $in_db
@@ -20,7 +19,7 @@ class AuthL
                 ->select('password')
                 ->where($in_db[0], '=', $data[0])
                 ->first();
-        if ($user == null) {
+        if( $user == null ) {
             return false;
         } else {
             return $this->otherLogic($user, $data);
@@ -34,10 +33,10 @@ class AuthL
      */
     private function otherLogic($user, $data)
     {
-        if (password_verify($data[1], $user->password)) {
+        if( password_verify($data[1], $user->password) ) {
             return $this->takeInfo($data);
         } else {
-            echo Config ::get('validate_rules.notincorrectpassword');
+            echo Config::get('validate_rules.notincorrectpassword');
 
             return false;
         }
@@ -69,11 +68,11 @@ class AuthL
      */
     private function setInfo($user, $token)
     {
-        $newToken = Csrf ::instance() -> generate($token);
-        Cookie ::instance() -> set('csrf', $newToken);
+        $newToken = Csrf::instance()->generate($token);
+        Cookie::instance()->set('csrf', $newToken);
         foreach( $user as $k => $v ) {
             $this->user[$k] = $v;
-            Cookie ::instance() -> set($k, $v);
+            Cookie::instance()->set($k, $v);
         }
 
         return true;
@@ -87,10 +86,10 @@ class AuthL
     {
         $result = \DB::table('users')
                 ->select('id')
-                -> where('id', '=', Cookie ::instance() -> get('id'))
-                -> where('token', '=', Cookie ::instance() -> get('token'))
+                ->where('id', '=', Cookie::instance()->get('id'))
+                ->where('token', '=', Cookie::instance()->get('token'))
                 ->first();
-        if ($result == null && $result == false) {
+        if( $result == null && $result == false ) {
             return false;
         } else {
             return true;

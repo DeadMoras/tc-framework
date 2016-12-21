@@ -4,8 +4,7 @@ namespace framework\other;
 
 use framework\other\Mcrypt;
 
-class Cookie
-{
+class Cookie {
     /**
      *
      * @var object
@@ -14,13 +13,16 @@ class Cookie
 
     private static $cookie_object;
 
-    private function __construct() {}
+    private function __construct()
+    {
+    }
 
     public static function instance()
     {
-        if ( self::$cookie_object == null && self::$cookie_object == false ) {
+        if( self::$cookie_object == null && self::$cookie_object == false ) {
             self::$cookie_object = new Cookie;
         }
+
         return self::$cookie_object;
     }
 
@@ -45,6 +47,7 @@ class Cookie
     public function get($name)
     {
         $value = empty($_COOKIE[$name]) ? 'Пусто' : $this->mcrypt()->decrypt($_COOKIE[$name]);
+
         return $value;
     }
 
@@ -73,9 +76,10 @@ class Cookie
      */
     private function mcrypt()
     {
-        if ($this->mobject == null) {
+        if( $this->mobject == null ) {
             $this->mobject = new Mcrypt;
         }
+
         return $this->mobject;
     }
 
