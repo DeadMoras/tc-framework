@@ -2,7 +2,8 @@
 
 namespace framework\auth;
 
-interface AuthInt {
+interface AuthInt
+{
     /**
      *
      * @param array $data

@@ -6,7 +6,8 @@ use framework\auth\AuthInt;
 use framework\other\Config;
 use framework\other\Cookie;
 
-class AuthB extends AuthL implements AuthInt {
+class AuthB extends AuthL implements AuthInt
+{
     /**
      *
      * @var array
@@ -88,9 +89,7 @@ class AuthB extends AuthL implements AuthInt {
      */
     private function userAllInfo()
     {
-        $all = \DB::table('users')
-                ->where('id', '=', self::cookie()->get('id'))
-                ->first();
+        $all = \DB::table('users')->where('id', '=', self::cookie()->get('id'))->first();
         if( $all == null && $all == false ) {
             return false;
         } else {

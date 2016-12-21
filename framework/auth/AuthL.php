@@ -6,7 +6,8 @@ use framework\other\Config;
 use framework\other\Cookie;
 use framework\other\Csrf;
 
-class AuthL {
+class AuthL
+{
     /**
      *
      * @param array $in_db
@@ -15,10 +16,7 @@ class AuthL {
      */
     protected function userInfo($in_db, $data)
     {
-        $user = \DB::table('users')
-                ->select('password')
-                ->where($in_db[0], '=', $data[0])
-                ->first();
+        $user = \DB::table('users')->select('password')->where($in_db[0], '=', $data[0])->first();
         if( $user == null ) {
             return false;
         } else {
@@ -53,10 +51,7 @@ class AuthL {
         $dataInfo = ['token' => $token];
         \DB::table('users')->where('login', '=', $data[0])->update($dataInfo);
 
-        $userInfo = \DB::table('users')
-                ->select('id', 'token')
-                ->where('login', '=', $data[0])
-                ->first();
+        $userInfo = \DB::table('users')->select('id', 'token')->where('login', '=', $data[0])->first();
 
         return $this->setInfo($userInfo, $token);
     }
@@ -84,11 +79,7 @@ class AuthL {
      */
     protected function checkLogic()
     {
-        $result = \DB::table('users')
-                ->select('id')
-                ->where('id', '=', Cookie::instance()->get('id'))
-                ->where('token', '=', Cookie::instance()->get('token'))
-                ->first();
+        $result = \DB::table('users')->select('id')->where('id', '=', Cookie::instance()->get('id'))->where('token', '=', Cookie::instance()->get('token'))->first();
         if( $result == null && $result == false ) {
             return false;
         } else {

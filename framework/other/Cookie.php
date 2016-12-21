@@ -4,7 +4,8 @@ namespace framework\other;
 
 use framework\other\Mcrypt;
 
-class Cookie {
+class Cookie
+{
     /**
      *
      * @var object
