@@ -4,7 +4,8 @@ namespace framework\other;
 
 use framework\other\Mcrypt;
 
-class Cookie {
+class Cookie
+{
     /**
      *
      * @var object
@@ -13,17 +14,14 @@ class Cookie {
 
     private static $cookie_object;
 
-    private function __construct()
-    {
-    }
+    private function __construct() {}
 
     public static function instance()
     {
-        if( self ::$cookie_object == null && self ::$cookie_object == false ) {
-            self ::$cookie_object = new Cookie;
+        if ( self::$cookie_object == null && self::$cookie_object == false ) {
+            self::$cookie_object = new Cookie;
         }
-
-        return self ::$cookie_object;
+        return self::$cookie_object;
     }
 
     /**
@@ -34,9 +32,9 @@ class Cookie {
      * @param string $domens
      * @param boolean $httponly
      */
-    public function set($name, $value, $time = false, $domens = false, $httponly = false) : void
+    public function set($name, $value, $time = false, $domens = false, $httponly = false)
     {
-        $value = $this -> mcrypt() -> encrypt($value);
+        $value = $this->mcrypt()->encrypt($value);
         setcookie($name, $value, $time, $domens, $httponly);
     }
 
@@ -47,8 +45,7 @@ class Cookie {
      */
     public function get($name)
     {
-        $value = empty($_COOKIE[$name]) ? 'Пусто' : $this -> mcrypt() -> decrypt($_COOKIE[$name]);
-
+        $value = empty($_COOKIE[$name]) ? 'Пусто' : $this->mcrypt()->decrypt($_COOKIE[$name]);
         return $value;
     }
 
@@ -58,7 +55,7 @@ class Cookie {
      */
     public function remove($name)
     {
-        $this -> set($name, "0", time() - 1, "/");
+        $this->set($name, "0", time() - 1, "/");
     }
 
     /**
@@ -68,7 +65,7 @@ class Cookie {
      */
     public function has($name)
     {
-        if( $_COOKIE[$name] !== null ) {
+        if ($_COOKIE[$name] !== null) {
             return true;
         } else {
             return false;
@@ -81,11 +78,10 @@ class Cookie {
      */
     private function mcrypt()
     {
-        if( $this -> mobject == null ) {
-            $this -> mobject = new Mcrypt;
+        if ($this->mobject == null) {
+            $this->mobject = new Mcrypt;
         }
-
-        return $this -> mobject;
+        return $this->mobject;
     }
 
 }
