@@ -3,6 +3,7 @@
 namespace framework\auth;
 
 use framework\auth\AuthInt;
+use framework\other\Config;
 use framework\other\Cookie;
 
 class AuthB extends AuthL implements AuthInt
@@ -51,7 +52,7 @@ class AuthB extends AuthL implements AuthInt
         if ($info !== null && $info !== false) {
             return true;
         } else {
-            echo ' Проверьте правильность ввода данных <br>';
+            echo Config ::get('validate_rules.notincorrect');
             return false;
         }
     }
@@ -80,10 +81,9 @@ class AuthB extends AuthL implements AuthInt
             return false;
         }
     }
-    
+
     /**
-     * 
-     * @return boolean
+     * @return array|bool
      */
     private function userAllInfo()
     {
@@ -120,7 +120,7 @@ class AuthB extends AuthL implements AuthInt
      */
     protected static function cookie()
     {
-        $cookie = \framework\other\Cookie::instance();
+        $cookie = Cookie ::instance();
         if ( self::$cookie == null ) {
             self::$cookie = $cookie;
         }

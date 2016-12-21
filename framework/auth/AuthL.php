@@ -2,10 +2,14 @@
 
 namespace framework\auth;
 
+use framework\other\Config;
+use framework\other\Cookie;
+use framework\other\Csrf;
+
 class AuthL
 {
     /**
-     * 
+     *
      * @param array $in_db
      * @param array $data
      * @return boolean
@@ -22,25 +26,25 @@ class AuthL
             return $this->otherLogic($user, $data);
         }
     }
-    
+
     /**
-     * 
      * @param array $user
      * @param array $data
-     * @return boolean
+     * @return bool|void
      */
     private function otherLogic($user, $data)
     {
         if (password_verify($data[1], $user->password)) {
             return $this->takeInfo($data);
         } else {
-            echo 'Неверный пароль';
+            echo Config ::get('validate_rules.notincorrectpassword');
+
             return false;
         }
     }
-    
+
     /**
-     * 
+     *
      * @param array $data
      * @return void
      */
@@ -54,36 +58,37 @@ class AuthL
                 ->select('id', 'token')
                 ->where('login', '=', $data[0])
                 ->first();
+
         return $this->setInfo($userInfo, $token);
     }
-    
+
     /**
-     * 
+     *
      * @param array $user
      * @return boolean
      */
     private function setInfo($user, $token)
     {
-        $csrf = \framework\other\Csrf::instance();
-        $newToken = $csrf->generate($token);
-        AuthB::cookie()->set('csrf', $newToken);
-        foreach ($user as $k => $v) {
+        $newToken = Csrf ::instance() -> generate($token);
+        Cookie ::instance() -> set('csrf', $newToken);
+        foreach( $user as $k => $v ) {
             $this->user[$k] = $v;
-            AuthB::cookie()->set($k, $v);
+            Cookie ::instance() -> set($k, $v);
         }
+
         return true;
     }
-    
+
     /**
-     * 
+     *
      * @return boolean
      */
     protected function checkLogic()
     {
         $result = \DB::table('users')
                 ->select('id')
-                ->where('id', '=', AuthB::cookie()->get('id'))
-                ->where('token', '=', AuthB::cookie()->get('token'))
+                -> where('id', '=', Cookie ::instance() -> get('id'))
+                -> where('token', '=', Cookie ::instance() -> get('token'))
                 ->first();
         if ($result == null && $result == false) {
             return false;
@@ -91,10 +96,10 @@ class AuthL
             return true;
         }
     }
-    
+
     /**
-     * 
-     * @param number $length
+     *
+     * @param int|number $length
      * @return string
      */
     public function generateToken($length = 20)
@@ -102,9 +107,10 @@ class AuthL
         $chars = 'abdefhiknrstyzABDEFGHKNQRSTYZ23456789';
         $numChars = strlen($chars);
         $string = '';
-        for ($i = 0; $i < $length; $i++) {
+        for( $i = 0; $i < $length; $i++ ) {
             $string .= substr($chars, rand(1, $numChars) - 1, 1);
         }
+
         return $string;
     }
 }

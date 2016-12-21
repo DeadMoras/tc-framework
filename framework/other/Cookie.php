@@ -28,8 +28,8 @@ class Cookie
      *
      * @param string $name
      * @param mixed $value
-     * @param time|string $time
-     * @param string $domens
+     * @param bool|time|string $time |string $time
+     * @param bool|string $domens
      * @param boolean $httponly
      */
     public function set($name, $value, $time = false, $domens = false, $httponly = false)
@@ -62,13 +62,9 @@ class Cookie
      * @param string $name
      * @return boolean
      */
-    public function has($name)
+    public function has($name) : boolean
     {
-        if ($_COOKIE[$name] !== null) {
-            return true;
-        } else {
-            return false;
-        }
+        return $_COOKIE[$name] !== null ? true : false;
     }
 
     /**
