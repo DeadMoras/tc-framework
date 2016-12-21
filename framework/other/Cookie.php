@@ -39,7 +39,6 @@ class Cookie
     }
 
     /**
-     *
      * @param string $name
      * @return mixed
      */
