@@ -22,7 +22,7 @@ class Request extends Factory
     }
 
     /**
-     * 
+     *
      * @param array $name
      * @return string
      */
@@ -32,7 +32,7 @@ class Request extends Factory
     }
 
     /**
-     * 
+     *
      * @param array $object
      * @return void
      */
@@ -42,7 +42,7 @@ class Request extends Factory
     }
 
     /**
-     * 
+     *
      * @param mixed $object
      * @return json
      */
@@ -52,7 +52,7 @@ class Request extends Factory
     }
 
     /**
-     * 
+     *
      * @return array
      */
     public function all()
@@ -61,11 +61,20 @@ class Request extends Factory
     }
 
     /**
-     * 
+     *
      * @return string
      */
     public function foreachData()
     {
         return $this->object->foreachData();
+    }
+
+    /**
+     * @param $name
+     * @return string
+     */
+    public function get($name)
+    {
+        return $this->object->get($name);
     }
 }

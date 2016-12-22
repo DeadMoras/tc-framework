@@ -68,4 +68,13 @@ class RequestB extends RequestL
             echo $k;
         }
     }
+
+    /**
+     * @param $name
+     * @return string
+     */
+    public function get($name)
+    {
+        return parent::getInput($name);
+    }
 }
