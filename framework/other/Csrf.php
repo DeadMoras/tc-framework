@@ -11,7 +11,8 @@ class Csrf
      * @var object
      */
     private static $csrf_object;
-    
+
+    private $csrfKey = 'lw/e1203q.weks';
 
     private function __construct() {}
 
@@ -55,7 +56,7 @@ class Csrf
      */
     private function generatePrivate(string $token)
     {
-        $newToken = $token . ':' . md5($token . ':' . 'lw/e1203q.weks');
+        $newToken = $token . ':' . md5($token . ':' . $this->csrfKey);
         return $newToken;
     }
     
@@ -68,8 +69,8 @@ class Csrf
     {
         $cookie = \framework\other\Cookie::instance();
         if ($cookie->has('csrf') && $cookie->has('token')) {
-            $tokenCookie = $cookie->get('csrf') . ':' . md5($cookie->get('csrf') . ':' . 'lw/e1203q.weks');
-            $tokenCheck = $token . ':' . md5($token . ':' . 'lw/e1203q.weks');
+            $tokenCookie = $cookie->get('csrf') . ':' . md5($cookie->get('csrf') . ':' . $this->csrfKey);
+            $tokenCheck = $token . ':' . md5($token . ':' . $this->csrfKey);
             if ($tokenCheck === $tokenCookie) {
                 return true;
             } else {
