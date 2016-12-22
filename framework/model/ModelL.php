@@ -56,5 +56,4 @@ class ModelL
     {
         return (new $this->model)->{$this->action}($data);
     }
-
 }
