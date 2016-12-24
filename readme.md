@@ -176,7 +176,7 @@ $model->init('User', 'register', $data);
 
 * Упрощенный синтаксис:
 ```
-$model->ainit(['User' => 'register', $data]);
+$model->ainit(['User' => 'register'], $data);
 ```
 
 Модель может вернуть обработанные данные, которые можно передать в шаблон.
