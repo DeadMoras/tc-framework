@@ -6,6 +6,13 @@
     "framework",
     "TC"
   ],
+  "authors": [
+    {
+      "name": "DeadMoras",
+      "email": "deadmoras3011@mail.ru"
+    }
+  ],
+  "minimum-stability": "beta",
   "require": {
     "usmanhalalit/pixie": "2.*@dev",
     "smarty/smarty": "~3.1"
