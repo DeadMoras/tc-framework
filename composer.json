@@ -25,5 +25,5 @@
       "framework\\": "framework/"
     }
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "stable"
 }
