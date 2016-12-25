@@ -1,18 +1,18 @@
 {
-  "name": "TC/TheCrutch",
-  "type": "project",
-  "description": "framework.",
-  "keywords": [
-    "framework",
-    "TC"
-  ],
-  "authors": [
-    {
-      "name": "DeadMoras",
-      "email": "deadmoras3011@mail.ru"
+  "repositories": {
+    "tc-framework": {
+      "type": "project",
+      "project": {
+        "name": "deadmoras/tc-framework",
+        "version": "0.2",
+        "source": {
+          "url": "https://github.com/DeadMoras/tc-framework",
+          "type": "git",
+          "reference": "origin"
+        }
+      }
     }
-  ],
-  "minimum-stability": "beta",
+  },
   "require": {
     "usmanhalalit/pixie": "2.*@dev",
     "smarty/smarty": "~3.1"
