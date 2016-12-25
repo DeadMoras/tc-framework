@@ -24,5 +24,6 @@
       "app\\": "app/",
       "framework\\": "framework/"
     }
-  }
+  },
+  "minimum-stability": "dev"
 }
