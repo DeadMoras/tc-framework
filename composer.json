@@ -1,18 +1,21 @@
 {
-  "repositories": {
-    "tc-framework": {
-      "type": "project",
-      "project": {
-        "name": "deadmoras/tc-framework",
-        "version": "0.2",
-        "source": {
-          "url": "https://github.com/DeadMoras/tc-framework",
-          "type": "git",
-          "reference": "origin"
-        }
-      }
-    }
+  "name": "tc/tc-framework",
+  "type": "project",
+  "description": "The Tc Framework.",
+  "license": "MIT",
+  "keywords": [
+    "framework",
+    "TC"
+  ],
+  "support": {
+    "source": "https://github.com/DeadMoras/tc-framework"
   },
+  "authors": [
+    {
+      "name": "Anton Novchenko",
+      "email": "deadmoras3011@mail.ru"
+    }
+  ],
   "require": {
     "usmanhalalit/pixie": "2.*@dev",
     "smarty/smarty": "~3.1"
@@ -22,5 +25,6 @@
       "app\\": "app/",
       "framework\\": "framework/"
     }
-  }
+  },
+  "minimum-stability": "beta"
 }
